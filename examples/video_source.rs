@@ -19,8 +19,8 @@ fn main() {
     pipeline.play();
     for message in bus_receiver.iter() {
         match message.parse() {
-            gst::Message::Eos(_) => {
-                println!("Eos received");
+            gst::Message::Error(_) => {
+                println!("Error");
                 break;
             }
             _ => {}
